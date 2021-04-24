@@ -1,0 +1,48 @@
+.topCards{
+    display: flex;
+    flex-wrap: wrap;
+    width:960px;
+    justify-content: space-between;
+    margin-bottom: 34px;
+}
+.lowerCards{
+    width:960px;
+}
+.cardStructure{
+    width: 304px;
+    height: 158px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #0000000A;
+    border-radius: 12px;
+    padding: 24px;
+}
+.cardStructure2{
+    width: 304px;
+    height: 158px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #0000000A;
+    border-radius: 12px;
+}
+.taskCompletion-header{
+    text-align: left;
+    font-size: 20px;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+    color: #537178;
+}
+.taskCount{
+    display: flex;
+    align-items: baseline ;
+}
+.lowerCards-topRegion{
+    display: flex;
+    justify-content: space-between;
+}
+.taskSearchButton{
+    width: 124px;
+    height: 40px;
+    background-color: #5285EC;
+    border-radius: 8px;
+    color:#FFFFFF;
+    border:none
+}
