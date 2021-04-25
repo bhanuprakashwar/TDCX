@@ -1,11 +1,6 @@
-@media screen and (max-width:700px){
-    .headerRegion{
-        padding: 0 24px !important;
-    }
-}
 .home-container{
     background-color: #F4F4F6;
-    height: 100vh;
+    min-height: 100vh;
 }
 .headerRegion{
     display: flex;
@@ -19,25 +14,36 @@
 }
 .profile-container{
     display: flex;
-    width: 86px;
+    min-width: 86px;
     height: 100%;
-    justify-content: space-between;
     align-items: center;
 }
 .profile-img{
     width: 48px;
     height:48px;
+    margin-right: 12px
 }
 .profile-name{
     font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    color: #6D8187;        
 }
 .logout{
     display: flex;
     align-items: center;
     height: 100%;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+}
+.logout-button{
+    border: none;
+    background-color: transparent;
+    color: #6D8187;
 }
 .body{
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +68,7 @@
 }
 .taskHeader{
     font-size: 20px;
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     letter-spacing: 0px;
     color: #537178;
 }
@@ -82,6 +88,10 @@
 }
 .modal-title{
     margin:24px !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #537178;
 }
 .modal-form{
     display: flex;
@@ -93,11 +103,12 @@
 input[type=text]{
     width: 244px;
     max-height: 40px;
-    background: #EEF1F8 0% 0% no-repeat padding-box;
+    background: #EEF1F8;
     border-radius: 8px;
     border:none;
     font-size: 14px;
     padding: 12px 0px;
+    font-family: 'Montserrat', sans-serif;
 }
 .modal-button{
     width: 244px;
@@ -107,4 +118,33 @@ input[type=text]{
     color: #FFFFFF;
     border: none;
 
+}
+@media screen and (max-width:700px){
+    .headerRegion{
+        padding: 0 24px !important;
+    }
+    .body{
+        margin-top:12px;
+        height: auto !important;
+        align-items: start  !important;
+    }
+    .addTask{
+        width: 100%;
+    }
+    .taskHeader{
+        font-size:24px;
+    }
+    .modal-dialog-centered{
+        min-height: calc(50% - 1rem);
+    }
+    .modal-container{
+        border-radius: 12px !important;
+        width: 95% !important;
+    }
+    input[type=text]{
+        width:85% !important;
+    }
+    .modal-button{
+        width: 85%;
+    }
 }

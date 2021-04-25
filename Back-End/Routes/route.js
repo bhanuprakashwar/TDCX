@@ -41,7 +41,7 @@ router.get("/dashboard", auth.validJWT, (req, res) => {
             data.forEach(i => i.completed ? completionCount++ : completionCount)
             const latestTasks = (data.length > 3) ? data.slice(data.length - 3, data.length) : data;
             const response = {
-                taskcompleted: completionCount,
+                taskCompleted: completionCount,
                 totalTasks: data.length,
                 latestTasks: latestTasks
             }
@@ -69,6 +69,7 @@ router.get("/tasks", auth.validJWT, (req, res) => {
 // 4. Added a new task
 router.post("/tasks", auth.validJWT, (req, res) => {
     try {
+        console.log(req.body.name);
         if (req.body?.name) {
             const task = new Task({
                 name: req.body.name,
