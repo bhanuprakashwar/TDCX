@@ -23,10 +23,10 @@
 .login-container-body{
     margin: 24px;
 }
-input[type=text],[type=password]{
+input[type=text]{
     width: 244px;
     height: 40px;
-    background: #EEF1F8 0% 0% no-repeat padding-box;
+    background: #EEF1F8;
     border-radius: 8px;
     border:none;
     font-size: 14px;

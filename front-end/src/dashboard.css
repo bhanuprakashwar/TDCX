@@ -132,11 +132,11 @@ input.lowerCards-checkbox{
 .searchbox-region{
     width: 244px;
     max-height: 40px;
-    background: #D9DFEB !important;
+    background: #D9DFEB url("./assests/search-solid.svg") no-repeat 5% !important;
     border-radius: 8px;
     border:none;
     font-size: 14px;
-    padding: 12px 0px;
+    padding: 12px 12px 12px 40px !important;
     font-family: 'Montserrat', sans-serif;
     margin-right: 12px;
 }
