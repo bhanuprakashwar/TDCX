@@ -26,8 +26,8 @@ function Home() {
         'Authorization': "Bearer " + token,
         'Content-Type': "application/json"
     }
-    const submitHandler = e => {
-        e.preventDefault();
+    // API Call function starts here
+    function addTaskAPICall(){
         let payload = {
             name: addTask
         }
@@ -42,7 +42,7 @@ function Home() {
             })
 
     }
-    function submitHandler2(data) {
+    function updateTaskAPICall(data) {
         let payload = {
             name: addTask,
             completed: currentTaskComplete
@@ -63,6 +63,54 @@ function Home() {
         sessionStorage.removeItem("token");
         history.push("/login");
     }
+    function deleteTaskAPICall(data) {
+        axios.delete(devURL + task + "/" + data._id, { headers })
+            .then(data => {
+                console.log(data);
+                setComponentReload(reLoadComponent + 1)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+    function editTaskAPICall(data) {
+        setTask(data.name);
+        setCurrentTaskID(data._id);
+        setCurrentTaskComplete(data.completed);
+        setDialog(true);
+        setEditTask(true);
+    }
+    function completionTask(data, checked) {
+        let payload = {
+            name: data.name,
+            completed: checked
+        }
+        axios.put(devURL + task + "/" + data._id, payload, { headers })
+            .then(response => {
+                console.log(response);
+                setComponentReload(reLoadComponent + 1)
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    // API Call functions ends here
+
+    function filterTask(data) {
+        let list = taskDetails.filter((i) => {
+            if (i.name.toLowerCase().includes(data.toLowerCase())) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        if (data === "")
+            setTaskFilter(taskDetails);
+        else
+            setTaskFilter(list);
+    }
+    // React Hook
     useEffect(() => {
         axios.get(devURL + dashBoard, { headers })
             .then(data => {
@@ -87,60 +135,12 @@ function Home() {
                             console.log(error);
                         });
                 }
-                //setDashboardDetails(dashboardData.totalTasks);
             })
             .catch(error => {
                 console.log(error);
             })
 
     }, [reLoadComponent])
-    function deleteTask(data) {
-        axios.delete(devURL + task + "/" + data._id, { headers })
-            .then(data => {
-                console.log(data);
-                setComponentReload(reLoadComponent + 1)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-    function editTask(data) {
-        setTask(data.name);
-        setCurrentTaskID(data._id);
-        setCurrentTaskComplete(data.completed);
-        setDialog(true);
-        setEditTask(true);
-    }
-    function completionTask(data, checked) {
-        let payload = {
-            name: data.name,
-            completed: checked
-        }
-        axios.put(devURL + task + "/" + data._id, payload, { headers })
-            .then(response => {
-                console.log(response);
-                setComponentReload(reLoadComponent + 1)
-
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-    //dashboard
-    function filterTask(data) {
-        let list = taskDetails.filter((i) => {
-            if (i.name.toLowerCase().includes(data.toLowerCase())) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-        if (data === "")
-            setTaskFilter(taskDetails);
-        else
-            setTaskFilter(list);
-    }
-    //ends ehre
     return (
         <div className="home-container">
             <header>
@@ -161,12 +161,12 @@ function Home() {
                     <Modal.Title className="modal-title">{edit ? "Update Task" : "+ New Task"}</Modal.Title>
                     <Modal.Body style={{ padding: "0px 0px 30px 0px" }}>
                         {edit ?
-                            <form className="modal-form" onSubmit={submitHandler2}>
+                            <form className="modal-form" onSubmit={updateTaskAPICall}>
                                 <input type="text" id="taskname" placeholder="Task Name" value={addTask} onChange={e => setTask(e.target.value)} />
                                 <input className="modal-button" type="submit" value="Update Task" />
                             </form>
                             :
-                            <form className="modal-form" onSubmit={submitHandler}>
+                            <form className="modal-form" onSubmit={addTaskAPICall}>
                                 <input type="text" id="taskname" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
                                 <input className="modal-button" type="submit" value="+ New Task" />
                             </form>
@@ -216,8 +216,8 @@ function Home() {
                                                 <div className={i.completed ? "lowerCards-complete-text" : "lowerCards-text"}>{i.name}</div>
                                             </div>
                                             <div className="lowerCards-rightRegion">
-                                                <Editlogo onClick={() => editTask(i)} />
-                                                <DeleteLogo onClick={() => deleteTask(i)} />
+                                                <Editlogo onClick={() => editTaskAPICall(i)} />
+                                                <DeleteLogo onClick={() => deleteTaskAPICall(i)} />
                                             </div>
                                         </div>
                                     )
