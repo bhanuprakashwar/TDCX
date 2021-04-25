@@ -4,13 +4,13 @@ The project contains two folders
     2.Front End     -       ReactJS
 
 Steps to run the project:
-1. Navigate to Back-End folder and start the server by following the commands \
-                npm install \
-                nodemon index.js \
-2. Navigate to Front end folder and start the react project by following the commands \
-                npm install \
-                npm start \ 
-    Note: Allow to run on different port number \
-3. Login with following credentials \
-        ID:     qW1hrT2 \
-        Name:   John Doe \
+1. Navigate to Back-End folder and start the server by following the commands
+                1. npm install
+                2. nodemon index.js
+2. Navigate to Front end folder and start the react project by following the commands
+                1. npm install
+                2. npm start
+    Note: Allow to run on different port number
+3. Login with following credentials
+        ID:     qW1hrT2
+        Name:   John Doe
