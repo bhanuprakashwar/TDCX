@@ -1,0 +1,49 @@
+.login{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F6;
+}
+.login-container{
+    width: 296px;
+    height: 249px;  
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 12px;
+}
+.login-container-header{
+    font-size: 24px;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+    color: #537178;
+    text-align: left;
+    margin: 24px;
+}
+.login-container-body{
+    margin: 24px;
+}
+input[type=text],[type=password]{
+    width: 244px;
+    height: 40px;
+    background: #EEF1F8 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    border:none;
+    font-size: 14px;
+    padding: 12px;
+}
+.input-field-password{
+    margin: 12px 0px;
+}
+.login-button{
+    width: 244px;
+    height: 40px;
+    background: #5285EC 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
