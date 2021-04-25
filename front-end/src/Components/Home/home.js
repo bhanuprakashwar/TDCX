@@ -1,5 +1,5 @@
 import './home.css';
-import '../Dashboard/dashboard';
+import '../../dashboard.css'
 import profilePic from '../../assests/pic.png';
 import { Modal } from "react-bootstrap";
 import { useEffect, useState } from 'react';
@@ -10,18 +10,18 @@ import { ReactComponent as DeleteLogo } from "../../assests/trash-solid.svg";
 import { Pie } from 'react-chartjs-2';
 import { devURL, dashBoard, task } from "../../environments/environment";
 function Home() {
+    const [pieData, setPieData] = useState();
+    const { name, token } = JSON.parse(sessionStorage.getItem("token"));
+    const history = useHistory();
     const [dialog, setDialog] = useState(false);
     const [edit, setEditTask] = useState();
-    const history = useHistory();
     const [addTask, setTask] = useState();
     const [taskDetails, setTaskDetails] = useState([]);
     const [dashboardDetails, setDashboardDetails] = useState([]);
-    const { name, token } = JSON.parse(sessionStorage.getItem("token"));
     const [reLoadComponent, setComponentReload] = useState(0);
     const [currentTaskID, setCurrentTaskID] = useState();
     const [currentTaskComplete, setCurrentTaskComplete] = useState();
     const [taskFilter, setTaskFilter] = useState([]);
-    const [pieData, setPieData] = useState();
     let headers = {
         'Authorization': "Bearer " + token,
         'Content-Type': "application/json"
