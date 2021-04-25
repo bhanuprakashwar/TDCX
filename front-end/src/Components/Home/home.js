@@ -8,6 +8,7 @@ import axios from 'axios';
 import { ReactComponent as Editlogo } from "../../assests/pen-solid.svg";
 import { ReactComponent as DeleteLogo } from "../../assests/trash-solid.svg";
 import { Pie } from 'react-chartjs-2';
+import { devURL, dashBoard, task } from "../../environments/environment";
 function Home() {
     const [dialog, setDialog] = useState(false);
     const [edit, setEditTask] = useState();
@@ -30,7 +31,7 @@ function Home() {
         let payload = {
             name: addTask
         }
-        axios.post("http://localhost:3000/api/tasks", payload, { headers })
+        axios.post(devURL + task, payload, { headers })
             .then(data => {
                 let response = data.data;
                 setDialog(false);
@@ -46,7 +47,7 @@ function Home() {
             name: addTask,
             completed: currentTaskComplete
         }
-        axios.put("http://localhost:3000/api/tasks/" + currentTaskID, payload, { headers })
+        axios.put(devURL + task + "/" + currentTaskID, payload, { headers })
             .then(response => {
                 console.log(response);
                 setEditTask(false);
@@ -63,12 +64,12 @@ function Home() {
         history.push("/login");
     }
     useEffect(() => {
-        axios.get("http://localhost:3000/api/dashboard", { headers })
+        axios.get(devURL + dashBoard, { headers })
             .then(data => {
                 let dashboardData = data.data;
                 setDashboardDetails(dashboardData);
                 if (dashboardData?.totalTasks !== 0) {
-                    axios.get("http://localhost:3000/api/tasks", { headers })
+                    axios.get(devURL + task, { headers })
                         .then(data => {
                             let taskList = data.data;
                             setTaskDetails(taskList);
@@ -94,7 +95,7 @@ function Home() {
 
     }, [reLoadComponent])
     function deleteTask(data) {
-        axios.delete("http://localhost:3000/api/tasks/" + data._id, { headers })
+        axios.delete(devURL + task + "/" + data._id, { headers })
             .then(data => {
                 console.log(data);
                 setComponentReload(reLoadComponent + 1)
@@ -115,7 +116,7 @@ function Home() {
             name: data.name,
             completed: checked
         }
-        axios.put("http://localhost:3000/api/tasks/" + data._id, payload, { headers })
+        axios.put(devURL + task + "/" + data._id, payload, { headers })
             .then(response => {
                 console.log(response);
                 setComponentReload(reLoadComponent + 1)

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import './login.css';
 import { useHistory } from "react-router-dom";
+import { devURL, login } from "../../environments/environment";
 function Login() {
     const history = useHistory();
     const [id, setId] = useState();
@@ -13,7 +14,7 @@ function Login() {
             id: id,
             name: name
         }
-        axios.post("http://localhost:3000/api/login", payload)
+        axios.post(devURL + login, payload)
             .then(data => {
                 let response = data.data;
                 if (response.token) {
