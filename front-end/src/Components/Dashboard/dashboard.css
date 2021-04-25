@@ -1,6 +1,8 @@
+.dashboardRegion{
+    margin: 30px 0px;
+}
 .topCards{
     display: flex;
-    flex-wrap: wrap;
     width:960px;
     justify-content: space-between;
     margin-bottom: 34px;
@@ -16,12 +18,13 @@
     border-radius: 12px;
     padding: 24px;
 }
-.cardStructure2{
+.latestTaskCardStructure{
     width: 304px;
     height: 158px;
     background: #FFFFFF;
     box-shadow: 0px 3px 6px #0000000A;
     border-radius: 12px;
+    padding: 24px;
 }
 .taskCompletion-header{
     text-align: left;
@@ -34,9 +37,15 @@
     display: flex;
     align-items: baseline ;
 }
+.taskCountNumber{
+    font-size: 64px;
+    color:#5285EC;
+    font-family: 'Montserrat', sans-serif;
+}
 .lowerCards-topRegion{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 16px;
 }
 .taskSearchButton{
     width: 124px;
@@ -45,4 +54,147 @@
     border-radius: 8px;
     color:#FFFFFF;
     border:none
+}
+.lowerCards-ListRegion{
+    width: 960px;
+    min-height: 75px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000014;
+    border-radius: 12px;
+}
+.lowerCards-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 24px;
+    height: 75px;
+    align-items: center;
+}
+.lowerCards-leftRegion{
+    display: flex;
+    align-items: center;
+}
+input.lowerCards-checkbox{
+    width: 18px;
+    height: 18px;
+}
+.lowerCards-text{
+    margin-left: 12px;
+    text-align: left;
+    font-size: 20px;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+    color: #5285EC;
+}
+.lowerCards-complete-text{
+    margin-left: 12px;
+    text-align: left;
+    font-size: 20px;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+    color: #537178;
+    text-decoration-line: line-through; 
+}
+.lowerCards-rightRegion{
+    width:50px;
+    display: flex;
+    justify-content: space-between;
+}
+.pieCardStructure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 304px;
+    height: 158px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #0000000A;
+    border-radius: 12px;
+    padding: 15px 0px;
+}
+.latestLists{
+    font-size:14px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    color: #8F9EA2;
+}
+.latestListsCompleted{
+    font-size:14px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    color: #8F9EA2;
+    text-decoration-line: line-through; 
+}
+.lowerCard-task-heading{
+    font-size:20px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0px;
+    color: #537178;
+}
+.searchbox-region{
+    width: 244px;
+    max-height: 40px;
+    background: #D9DFEB !important;
+    border-radius: 8px;
+    border:none;
+    font-size: 14px;
+    padding: 12px 0px;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 12px;
+}
+.lowerCard-search-region{
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width:700px){
+    .dashboardRegion{
+        width: 100%;
+    }
+    .topCards{
+        display: flex;
+        width:100%;
+        flex-direction: column;
+    }
+    .cardStructure{
+        width: 100%;
+        margin-bottom: 8px;
+        border-radius:5px;
+    }
+    .latestTaskCardStructure{
+        width: 100%;
+        margin-bottom: 8px;
+        border-radius:5px;
+    }
+    .pieCardStructure{
+        width:100%;
+        border-radius:5px;
+
+    }
+    .taskCompletion-header{
+        font-size:24px;
+    }
+    .lowerCards{
+        width:100%;
+    }
+    .lowerCards-topRegion{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .lowerCard-search-region{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .searchbox-region{
+        width: 85% !important;
+        margin:8px 0px;
+    }
+    .taskSearchButton{
+        width:85%;
+    }
+    .lowerCards-ListRegion{
+        width:100%;
+    }
 }
