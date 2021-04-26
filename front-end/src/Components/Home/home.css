@@ -100,7 +100,7 @@
     align-items: center;
     height: 92px;
 }
-input[type=text]{
+.modal-input{
     width: 244px;
     max-height: 40px;
     background: #EEF1F8;
@@ -141,7 +141,7 @@ input[type=text]{
         border-radius: 12px !important;
         width: 95% !important;
     }
-    input[type=text]{
+    .modal-input{
         width:85% !important;
     }
     .modal-button{
