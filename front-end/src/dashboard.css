@@ -122,6 +122,9 @@ input.lowerCards-checkbox{
     letter-spacing: 0px;
     color: #8F9EA2;
     text-decoration-line: line-through; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .lowerCard-task-heading{
     font-size:20px;
