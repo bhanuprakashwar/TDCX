@@ -196,6 +196,7 @@ function Home() {
                                     options={{
                                         responsive: true,
                                         maintainAspectRatio: false,
+                                        animation: false
                                     }} />
                             </div>
                         </div>
