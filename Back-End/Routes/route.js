@@ -69,8 +69,7 @@ router.get("/tasks", auth.validJWT, (req, res) => {
 // 4. Added a new task
 router.post("/tasks", auth.validJWT, (req, res) => {
     try {
-        console.log(req.body.name);
-        if (req.body?.name) {
+        if (req.body.hasOwnProperty("name")) {
             const task = new Task({
                 name: req.body.name,
                 completed: false
