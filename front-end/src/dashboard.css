@@ -72,6 +72,7 @@
 .lowerCards-leftRegion{
     display: flex;
     align-items: center;
+    width: 85%;
 }
 input.lowerCards-checkbox{
     width: 18px;
@@ -92,7 +93,11 @@ input.lowerCards-checkbox{
     font-family: Montserrat;
     letter-spacing: 0px;
     color: #537178;
-    text-decoration-line: line-through; 
+    text-decoration-line: line-through;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 .lowerCards-rightRegion{
     width:50px;
