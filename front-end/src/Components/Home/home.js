@@ -162,12 +162,12 @@ function Home() {
                     <Modal.Body style={{ padding: "0px 0px 30px 0px" }}>
                         {edit ?
                             <form className="modal-form" onSubmit={updateTaskAPICall}>
-                                <input type="text" id="taskname" class="modal-input" placeholder="Task Name" value={addTask} onChange={e => setTask(e.target.value)} />
+                                <input type="text" id="taskname" className="modal-input" placeholder="Task Name" value={addTask} onChange={e => setTask(e.target.value)} />
                                 <input className="modal-button" type="submit" value="Update Task" />
                             </form>
                             :
                             <form className="modal-form" onSubmit={addTaskAPICall}>
-                                <input type="text" id="taskname" class="modal-input" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
+                                <input type="text" id="taskname" className="modal-input" placeholder="Task Name" onChange={e => setTask(e.target.value)} />
                                 <input className="modal-button" type="submit" value="+ New Task" />
                             </form>
                         }
